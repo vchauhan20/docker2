@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Text Similarity </title>
+
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='./style.css') }}">
+  
+</head>
+
+<body>
+<h1>Text Similarity Calculator</h1>
+ <div class="form-div">
+	<h2>Enter the Text here </h2>
+
+     <!-- Form to enter new data for predictions  -->
+    <form action="{{ url_for('calculate')}}"method="POST" class = "form">
+      <input type="text"  name="First Text" placeholder="First Text" /><br>
+    	<input type="text" name="Second Text" placeholder="Second Text" /><br>
+        <input type="text" name="Third Text" placeholder="Third Text" /><br>
+        <select name="stop_words" id="cars">
+        <option value="0">Don't remove stop words</option>
+        <option value="1" selected>Remove stop words</option>
+        </select> <br>
+
+        <button type="submit" class="btn-submit">Calculate</button>
+    </form>
+
+   <br>
+   <br>
+   
+ </div>
+    <div class="prediction">
+        {{result_12}}
+        <br>
+        {{ result_23 }}
+        <br>
+        {{ result_13 }}
+    </div>
+
+</body>
+</html>
